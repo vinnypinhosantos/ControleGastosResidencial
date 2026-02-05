@@ -1,4 +1,6 @@
+using ControleGastosResidencial.Application.Pessoas;
 using ControleGastosResidencial.Data;
+using ControleGastosResidencial.Endpoints;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<CreatePessoaHandler>();
+builder.Services.AddScoped<UpdatePessoaHandler>();
+builder.Services.AddScoped<GetPessoaByIdHandler>();
+builder.Services.AddScoped<DeletePessoaHandler>();
+builder.Services.AddScoped<GetPessoasHandler>();
 
 var app = builder.Build();
 
@@ -24,5 +32,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapPessoasEndpoints();
 
 app.Run();

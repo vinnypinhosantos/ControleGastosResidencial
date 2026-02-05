@@ -21,9 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\" />
+    <Folder Include="Application\Pessoas\" />
+    <Folder Include="Application\Pessoas\DTOs\" />
     <Folder Include="Common\" />
     <Folder Include="Data\" />
     <Folder Include="Data\Configuration\" />
+    <Folder Include="Endpoints\" />
   </ItemGroup>
 
 </Project>

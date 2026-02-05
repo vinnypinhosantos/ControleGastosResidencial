@@ -12,5 +12,5 @@ public class Transacao
     public int CategoriaId { get; private set; }
     public Categoria Categoria { get; private set; } = new Categoria();
     public int PessoaId { get; private set; }
-    public Pessoa Pessoa {get; private set; } = new Pessoa();
+    public Pessoa? Pessoa {get; private set; }
 }
