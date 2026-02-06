@@ -22,12 +22,15 @@
 
   <ItemGroup>
     <Folder Include="Application\" />
+    <Folder Include="Application\Categorias\" />
+    <Folder Include="Application\Categorias\DTOs\" />
     <Folder Include="Application\Pessoas\" />
     <Folder Include="Application\Pessoas\DTOs\" />
     <Folder Include="Common\" />
     <Folder Include="Data\" />
     <Folder Include="Data\Configuration\" />
     <Folder Include="Endpoints\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 
 </Project>

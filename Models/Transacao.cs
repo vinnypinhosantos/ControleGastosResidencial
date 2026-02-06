@@ -10,7 +10,7 @@ public class Transacao
     public ValorMonetario? Valor { get; private set; }
     public Tipo Tipo { get; private set; }
     public int CategoriaId { get; private set; }
-    public Categoria Categoria { get; private set; } = new Categoria();
+    public Categoria? Categoria { get; private set; }
     public int PessoaId { get; private set; }
     public Pessoa? Pessoa {get; private set; }
 }

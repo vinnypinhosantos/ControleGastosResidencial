@@ -10,7 +10,6 @@ public static class PessoasEndpoints
     public static void MapPessoasEndpoints(this WebApplication app)
     {
         var group = app.MapGroup("/pessoas")
-            .RequireAuthorization()
             .WithTags("Pessoas");
 
         group.MapPost("",
@@ -23,8 +22,7 @@ public static class PessoasEndpoints
                 var result = await handler.HandleAsync(request);
 
                 if (!result.IsSuccess)
-                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!)
-                );
+                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
 
                 return Results.Created(
                     $"/pessoas/{result.Value!.Id}",
