@@ -34,10 +34,11 @@ public static class CategoriasEndpoints
         );
         group.MapGet("",
             async (
+                int? tipo,
                 GetCategoriasHandler handler
             ) =>
             {
-                var result = await handler.HandleAsync();
+                var result = await handler.HandleAsync(tipo);
 
                 if (!result.IsSuccess)
                     return Results.BadRequest(ApiResponse<CategoriaResponse>.Fail(result.Error!));
@@ -73,7 +74,7 @@ public static class CategoriasEndpoints
                 
                 return Results.Ok(ApiResponse<CategoriaResponse>.Ok(result.Value!));
             }
-        );
+        );     
         group.MapDelete("{id:int}",
             async (
                 int id,

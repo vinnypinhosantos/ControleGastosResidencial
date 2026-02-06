@@ -21,8 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\" />
-    <Folder Include="Application\Categorias\" />
     <Folder Include="Application\Categorias\DTOs\" />
     <Folder Include="Application\Pessoas\" />
     <Folder Include="Application\Pessoas\DTOs\" />
