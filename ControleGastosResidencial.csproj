@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Application\Categorias\DTOs\" />
-    <Folder Include="Application\Pessoas\" />
     <Folder Include="Application\Pessoas\DTOs\" />
     <Folder Include="Common\" />
     <Folder Include="Data\" />

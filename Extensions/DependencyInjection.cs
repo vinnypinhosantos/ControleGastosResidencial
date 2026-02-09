@@ -1,6 +1,7 @@
 using System;
 using ControleGastosResidencial.Application.Categorias;
 using ControleGastosResidencial.Application.Pessoas;
+using ControleGastosResidencial.Application.Pessoas.Queries.GetTotaisPorPessoa;
 using ControleGastosResidencial.Application.Transacoes;
 
 namespace ControleGastosResidencial.Extensions;
@@ -26,6 +27,8 @@ public static class DependencyInjection
         services.AddScoped<CreateTransacaoHandler>();
         services.AddScoped<UpdateTransacaoHandler>();
         services.AddScoped<DeleteTransacaoHandler>();
+
+        services.AddScoped<GetTotaisPorPessoaHandler>();
 
         return services;
     }

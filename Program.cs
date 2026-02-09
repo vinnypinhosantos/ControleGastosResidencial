@@ -34,5 +34,6 @@ app.UseHttpsRedirection();
 app.MapPessoasEndpoints();
 app.MapCategoriasEndpoints();
 app.MapTransacoesEndpoint();
+app.MapRelatoriosEndpoints();
 
 app.Run();
