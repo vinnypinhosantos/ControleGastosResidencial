@@ -6,15 +6,8 @@ using ControleGastosResidencial.Models;
 
 namespace ControleGastosResidencial.Application.Pessoas;
 
-public sealed class CreatePessoaHandler
+public sealed class CreatePessoaHandler (AppDbContext _context)
 {
-    private readonly AppDbContext _context;
-
-    public CreatePessoaHandler(AppDbContext context)
-    {
-        _context = context;
-    }
-
     public async Task<Result<PessoaResponse>> HandleAsync(
         CreatePessoaRequest request
     )

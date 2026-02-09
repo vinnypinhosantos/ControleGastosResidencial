@@ -21,7 +21,7 @@ public class ValorMonetario : ValueObject
     }
     public static Result<ValorMonetario> FromReais(decimal valorEmReais)
     {
-        if (valorEmReais > 0)
+        if (valorEmReais < 0)
             return Result<ValorMonetario>.Failure("O valor não pode ser negativo");
         
         var centavos = (int)Math.Round(valorEmReais * 100, MidpointRounding.AwayFromZero);

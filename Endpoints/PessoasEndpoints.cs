@@ -11,6 +11,33 @@ public static class PessoasEndpoints
     {
         var group = app.MapGroup("/pessoas")
             .WithTags("Pessoas");
+        
+        group.MapGet("",
+            async (
+                GetPessoasHandler handler
+            ) =>
+            {
+                var result = await handler.HandleAsync();
+
+                if (!result.IsSuccess)
+                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
+
+                return Results.Ok(ApiResponse<IEnumerable<PessoaResponse>>.Ok(result.Value!));
+            });
+
+        group.MapGet("{id:int}",
+            async (
+                int id,
+                GetPessoaByIdHandler handler
+            ) =>
+            {
+                var result = await handler.HandleAsync(id);
+
+                if (!result.IsSuccess)
+                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
+
+                return Results.Ok(ApiResponse<PessoaResponse>.Ok(result.Value!));
+            });
 
         group.MapPost("",
             async (
@@ -30,19 +57,6 @@ public static class PessoasEndpoints
                 );
             });
 
-        group.MapGet("",
-            async (
-                GetPessoasHandler handler
-            ) =>
-            {
-                var result = await handler.HandleAsync();
-
-                if (!result.IsSuccess)
-                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
-
-                return Results.Ok(ApiResponse<IEnumerable<PessoaResponse>>.Ok(result.Value!));
-            });
-
         group.MapPut("{id:int}",
             async (
                 int id,
@@ -51,20 +65,6 @@ public static class PessoasEndpoints
             ) =>
             {
                 var result = await handler.HandleAsync(id, request);
-
-                if (!result.IsSuccess)
-                    return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
-
-                return Results.Ok(ApiResponse<PessoaResponse>.Ok(result.Value!));
-            });
-
-        group.MapGet("{id:int}",
-            async (
-                int id,
-                GetPessoaByIdHandler handler
-            ) =>
-            {
-                var result = await handler.HandleAsync(id);
 
                 if (!result.IsSuccess)
                     return Results.BadRequest(ApiResponse<PessoaResponse>.Fail(result.Error!));
